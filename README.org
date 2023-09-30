@@ -1,0 +1,26 @@
+#+TITLE: Measuring the energy consumption of computer processing
+
+* Introduction
+  This repository contains notebooks and scripts for Lab sessions of measuring
+  the energy consumption of computer processing, using the
+  [[https://www.grid5000.fr/w/Grid5000:Home][Grid5000]] computing testbed for
+  experiments, with a focus on the RAPL interface and physical power meters.
+
+* Authors
+- Danilo Carastan-Santos: [[https://danilo-carastan-santos.github.io/]]
+- Mathilde Jay [[https://mjay42.github.io/]]
+
+* Repository Structure
+
+|-----------------+-------------------------------------------|
+| Directory Name  | Description                               |
+|-----------------+-------------------------------------------|
+| [[./Notebooks]] | Jupyter noteboks used in the lab sessions |
+| [[./Scripts]]   | Supportive scripts for the lab sessions   |
+| [[./Figures]]   | Supportive scripts for the lab sessions   |
+|-----------------+-------------------------------------------|
+
+* Acknowledgement
+
+The realization of this repository was partly supported by the EU MSCA PF
+LIGHTAIDGE project (g.a. 101107953).
