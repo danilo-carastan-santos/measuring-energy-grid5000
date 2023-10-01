@@ -20,6 +20,84 @@
 | [[./Figures]]   | Supportive figures for the lab sessions   |
 |-----------------+-------------------------------------------|
 
+* [French] Starting the lab session 
+** Objectifs
+- Utiliser des outils de monitoring d’énergie
+- Visualiser quels composants sont inclus dans les outils de mésure
+- Étudier l’impact du nombre de ressources dans la consommation énergétique
+
+** Préambule
+Tous les outils de mesure d'énergie nécessitent soit des droits de superutilisateur sur la machine, soit du matériel supplémentaire (wattmètre). Les fournisseurs de cloud public standard (AWS, Google Cloud, etc.) ne vous donnent pas accès à de tels outils. Néanmoins, le contenu présenté dans ce TP devrait être utile lors de (i) la phase de développement, où l'application s'exécute sur un ordinateur local, ou (ii) dans un cloud privé, où un contrôle plus approfondi du système/matériel est plus possible.
+** Partie 0 : Prendre en main Grid'5000
+*** Description de la plateforme
+Grid’5000 est un banc de test ("testbed" en anglais). Il s’agit d’une plate-forme expérimentale informatique
+qui permet de réaliser des tests rigoureux sur des outils de calcul numérique haute performance, notamment en
+calcul parallèle et distribué.   
+Grid’5000 s’organise de la manière suivante :
+- 8 sites en France
+- 800 noeuds localisés à Grenoble (92), Lille (39), Luxembourg (16), Lyon (132), Nancy (189), Nantes (70), Rennes (173), Sophia (44)
+- environ 15000 coeurs au total
+
+Vous pourrez accéder à toutes les caractéristiques techniques du matériel ici : https://www.grid5000.fr/w/Hardware.       
+L'utilisation de la plateforme est soumis à des régles simples de partages, qui sont détaillées ici : https://www.grid5000.fr/w/Grid'5000:UsagePolicy.    
+Les réservations des ressources passe par OAR qui est un utilitaire développé par Inria et utilisé pour le calcul haute performance. Les jobs sont définis par un JOB_ID. 
+
+*** Création du compte
+Vous avez dû recevoir un email dans le semaine avec les informations nécessaires pour accéder à la plateforme. Il y a deux étapes à faire : Ouvrir une URL et ajouter un mot de passe et une clef ssh.
+
+Pour générez une clef ssh :   
+`ssh-keygen -t rsa`   
+qui crée deux fichiers dans le dossier caché `./ssh`. id_rsa est la clef privée (à garder secrète)
+et id_rsa.pub la clef publique que vous transmettrez à Grid’5000.
+
+Ces étapes sont détaillées ici : https://www.grid5000.fr/w/Tutorial_or_Teaching_Labs_Trainee_HowTo.
+
+*** Accéder à la plateforme
+
+Pour ce TP, on vous propose d'utiliser l'interface Jupyter de Grid'5000, ce qui va vous permettre de visualiser l'évolution de l'énergie plus facilement : https://intranet.grid5000.fr/notebooks/. Suivez les étapes suivantes :
+- Créer un nouveau serveur
+- Sélectionner le site de Lyon
+- Cliquer sur "reserved node"
+- Requested ressources: "{cluster='nova'}/host=1"
+- Container ID : `CONTAINER_ID`
+- Walltime : 1:25
+- Cliquer sur start
+
+`CONTAINER_ID` est un chiffre que nous vous donnerons lors du début du TP
+
+[[../Figures/g5k_create_jupyter_server.png]]
+
+*** Télécharger le contenu du TP
+Dans l'interface d'accueil de JupyterLab, ouvrez un nouveau terminal
+
+[[../Figures/jupyterlab_terminal_button.png]]
+
+Puis, lancez la commande suivante 
+
+```
+git clone https://github.com/danilo-carastan-santos/measuring-energy-grid5000.git
+```
+
+*** Créer l'environnement vituel
+
+Dans ce même terminal lancez les commandes suivantes
+
+```
+python -m venv venv/
+source venv/bin/activate
+pip install ipykernel
+./venv/bin/python -m ipykernel install --user --name TP_conso --display-name "Python (TP_conso_MIAGE)"
+pip install pandas matplotlib requests numpy seaborn
+```
+
+*** Ouvrir le notebook du TP
+
+Vous pouvez ouvrir les notebooks un outilisant le navigateur de JupyterLab (côté gauche de l'interface).
+Ouvrez le Jupyter Notebook de ce TP (`./Notebooks/Lab_measuring_energy_g5k_FR.ipynb`) et selectionnez le kernel que vous venez de créer (`TP_Conso`). 
+
+[[../Figures/change_ipykernel_1.png]]
+[[../Figures/change_ipykernel_2.png]]
+
 * Acknowledgement
 
 The realization of this repository was partly supported by the EU MSCA PF
