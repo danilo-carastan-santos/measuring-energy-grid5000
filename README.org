@@ -17,7 +17,7 @@
 |-----------------+-------------------------------------------|
 | [[./Notebooks]] | Jupyter noteboks used in the lab sessions |
 | [[./Scripts]]   | Supportive scripts for the lab sessions   |
-| [[./Figures]]   | Supportive scripts for the lab sessions   |
+| [[./Figures]]   | Supportive figures for the lab sessions   |
 |-----------------+-------------------------------------------|
 
 * Acknowledgement
